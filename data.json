@@ -1,4 +1,25 @@
 [
-    { "kata": "Pelangi", "sinonim": ["Bianglala", "Busur Warna"], "kategori": ["Alam"], "asosiasi": "Fenomena optik..." },
-    { "kata": "Hujan", "sinonim": ["Gerimis", "Deras"], "kategori": ["Alam", "Cuaca"], "asosiasi": "Tetesan air dari langit..." }
+    {
+        "kata": "Pelangi",
+        "sinonim": [
+            "Bianglala",
+            "Busur Warna"
+        ],
+        "kategori": [
+            "Alam"
+        ],
+        "asosiasi": "Fenomena optik..."
+    },
+    {
+        "kata": "Hujan",
+        "sinonim": [
+            "Gerimis",
+            "Deras"
+        ],
+        "kategori": [
+            "Alam",
+            "Cuaca"
+        ],
+        "asosiasi": "Tetesan air dari langit..."
+    }
 ]
