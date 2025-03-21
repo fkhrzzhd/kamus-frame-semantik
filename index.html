@@ -1,26 +1,31 @@
-<script>
-    async function fetchData() {
-        try {
-            const response = await fetch("data.json"); // Ambil file JSON
-            const data = await response.json(); // Ubah ke format objek JS
-            displayWords(data);
-        } catch (error) {
-            console.error("Gagal mengambil data JSON:", error);
-        }
+async function fetchData() {
+    try {
+        const response = await fetch("https://USERNAME.github.io/REPOSITORY/data.json"); // Ganti dengan URL GitHub Pages Anda
+        if (!response.ok) throw new Error("Gagal mengambil data");
+        const data = await response.json();
+        displayWords(data);
+    } catch (error) {
+        console.error("Error:", error);
+    }
+}
+
+function displayWords(words) {
+    const tableBody = document.getElementById("wordList");
+    tableBody.innerHTML = "";
+
+    if (!words || words.length === 0) {
+        tableBody.innerHTML = "<tr><td colspan='4'>Data tidak ditemukan</td></tr>";
+        return;
     }
 
-    function displayWords(words) {
-        const tableBody = document.getElementById("wordList");
-        tableBody.innerHTML = "";
-        words.forEach(word => {
-            tableBody.innerHTML += `<tr>
-                <td>${word.kata}</td>
-                <td>${word.sinonim.join(", ")}</td>
-                <td>${word.kategori.join(", ")}</td>
-                <td>${word.asosiasi}</td>
-            </tr>`;
-        });
-    }
+    words.forEach(word => {
+        tableBody.innerHTML += `<tr>
+            <td>${word.kata}</td>
+            <td>${word.sinonim.join(", ")}</td>
+            <td>${word.kategori.join(", ")}</td>
+            <td>${word.asosiasi}</td>
+        </tr>`;
+    });
+}
 
-    fetchData(); // Panggil fungsi saat halaman dimuat
-</script>
+fetchData(); // Panggil saat halaman dimuat
